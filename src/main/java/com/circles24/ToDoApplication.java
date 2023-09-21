@@ -67,13 +67,15 @@ public class ToDoApplication {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String []args) {
         ToDoApplication toDoApplication = Builder.wire();
         toDoApplication.runCommand(args);
     }
 
-    public void runCommand(String args[]) {
-        if (args.length < 2) {
+    public void runCommand(String []args) {
+        log.info("args : {}", Arrays.stream(args).toList());
+
+        if (args.length < 1) {
             log.error("expected at least one cli argument");
             help();
             return;
